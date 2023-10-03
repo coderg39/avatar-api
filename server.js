@@ -29,7 +29,7 @@ const characters = {
     'iroh':{
         'nation': 'fire',
         'bending element': 'fire',
-        'fun fact': 'his nickname is \'The Dragon of the West\'',
+        'fun fact': 'earned the nickname is \'The Dragon of the West\'',
     },
     'unknown': 'unknown character. please try another name'
 }
@@ -41,7 +41,8 @@ app.get('/', (req, res)=>{
 app.get('/api/:name',(req, res)=>{
     const name = req.params.name.toLowerCase()
     if (characters[name]){
-        res.json(characters[name]['fun fact'])
+        const funFact = characters[name]['fun fact']
+        res.json(`${name} ${funFact}`)
     }else{
         res.json(characters['unknown'])
     }
