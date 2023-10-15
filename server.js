@@ -21,7 +21,7 @@ const characters = {
         'bending element': 'not a bender',
         'fun fact': 'is a ladies\' man'
     },
-    'Zuko':{
+    'zuko':{
         'nation': 'fire',
         'bending element': 'fire',
         'fun fact': 'is a cold swordsman',
@@ -39,7 +39,7 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/api/:name',(req, res)=>{
-    const name = req.params.name
+    const name = req.params.name.toLowerCase()
     if (characters[name]){
         res.json(characters[name]['fun fact'])
     }else{
